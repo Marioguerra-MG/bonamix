@@ -1,0 +1,176 @@
+/* Container do Menu */
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Ou center se quiser centralizado */
+  padding: 10px;
+}
+
+/* Botão Estilo Lançador de Aplicação */
+#abrirMenu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+/* Efeito Hover (ao passar o mouse) */
+#abrirMenu:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Efeito Active (ao clicar) */
+#abrirMenu:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(13, 71, 161, 0.3);
+}
+
+/* Adiciona um ícone discreto via pseudo-elemento CSS (Grade / App Launcher) */
+#abrirMenu::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: radial-gradient(#ffffff 40%, transparent 45%);
+  background-size: 5px 5px;
+}
+
+/* //// Modal menu abrir /// */
+
+/* Botão Lançador MENU */
+#abrirMenu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+#abrirMenu::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: radial-gradient(#ffffff 40%, transparent 45%);
+  background-size: 5px 5px;
+}
+
+#abrirMenu:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Modal Overlay do Menu */
+#modalMenu.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalMenu .modal-container {
+  background: #ffffff;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: slideUp 0.25s ease-out;
+}
+
+#modalMenu .modal-header {
+  background: #0d47a1;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#modalMenu .modal-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#modalMenu .modal-body {
+  padding: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+#modalMenu .lista-opcoes {
+  list-style: none;
+  margin-top: 15px;
+}
+
+#modalMenu .lista-opcoes li {
+  margin-bottom: 10px;
+}
+
+#modalMenu .lista-opcoes a {
+  display: block;
+  padding: 12px 14px;
+  background: #f5f9ff;
+  color: #0d47a1;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+#modalMenu .lista-opcoes a:hover {
+  background: #e3f2fd;
+}
+
+#modalMenu .modal-footer {
+  background: #f8f9fa;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #eee;
+}
+
+#modalMenu .btn-secundario {
+  background: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

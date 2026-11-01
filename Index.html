@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liberação de NF-e - Painel</title>
+    <link rel="stylesheet" href="/app--/css/index.css" />
+    <link rel="stylesheet" href="/app--/css/menu.css" />
+  </head>
+  <body>
+    <header>
+      <div class="menu">
+        <button id="abrirMenu">MENU</button>
+      </div>
+
+      <div>
+        <h1>Liberação de NF-e</h1>
+        <p>Indústria e Comércio (CARPER)</p>
+      </div>
+
+      <button
+        id="btnAbrirModal"
+        class="btn-config"
+        title="Configurar Link da Planilha"
+      >
+        ⚙️
+      </button>
+    </header>
+
+    <!-- MODAL EXCLUSIVO DO BOTÃO MENU -->
+    <div id="modalMenu" class="modal-overlay">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Navegação / Sistemas</h3>
+          <button id="btnFecharMenuTopo" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Selecione uma opção:</p>
+          <ul class="lista-opcoes">
+            <li><a href="#">TRANSFERÊNCIA SAIDA</a></li>
+            <li><a href="#">CONTROLE DE VALIDADE</a></li>
+            <li><a href="#">###</a></li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button id="btnFecharMenuAbaixo" class="btn-secundario">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL DE CONFIGURAÇÃO DA PLANILHA -->
+    <div id="modalLink" class="modal-overlay">
+      <div class="modal-content">
+        <h2>Configurar Planilha</h2>
+        <p>
+          Cole o link completo da aba da planilha (com o <code>gid=...</code>):
+        </p>
+        <input
+          type="text"
+          id="inputUrlPlanilha"
+          placeholder="https://docs.google.com/spreadsheets/d/.../edit?gid=..."
+          value="https://docs.google.com/spreadsheets/d/1fhoK1pONyYkhb8TOyn-BfDSiG9t1O-UtQa6XPAK5sjs/edit?gid=70023148#gid=70023148"
+        />
+        <div class="modal-botoes">
+          <button id="btnSalvarModal" class="btn-salvar">
+            Salvar e Carregar
+          </button>
+          <button id="btnFecharModal" class="btn-fechar">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL DE FILTROS -->
+    <div class="filtros">
+      <input
+        type="text"
+        id="busca"
+        placeholder="Buscar por Fornecedor, Nº NF ou Chave..."
+      />
+      <select id="filtroFilial">
+        <option value="">Todas Filiais</option>
+        <option value="Luziânia">Filial 2 - Luziânia</option>
+        <option value="Valparaíso">Valparaíso</option>
+        <option value="Águas Lindas">Águas Lindas</option>
+        <option value="Samambaia">Samambaia</option>
+      </select>
+      <select id="filtroStatus">
+        <option value="">Todos Status</option>
+        <option value="CONFERIR">CONFERIR PELA NF</option>
+        <option value="Liberado">Liberado</option>
+        <option value="AGUARDAR">AGUARDAR</option>
+        <option value="BONIFICA">BONIFICAÇÃO</option>
+      </select>
+      <button id="btnAtualizar">Atualizar Dados</button>
+    </div>
+
+    <div class="info">
+      <span id="totalRegistros">Aguardando dados...</span>
+      <span id="statusConexao">Pronto</span>
+    </div>
+
+    <!-- TABELA DE RESULTADOS -->
+    <div class="tabela-container">
+      <table id="tabelaNFe">
+        <thead>
+          <tr>
+            <th>Data/Hora</th>
+            <th>Filial</th>
+            <th>Fornecedor</th>
+            <th>Nº NF</th>
+            <th>Vencimento / Valor</th>
+            <th>Chave de Acesso</th>
+            <th>Status de Espera</th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabela">
+          <tr>
+            <td colspan="7" class="vazio">Carregando dados...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="/app--/js/index.js"></script>
+    <script src="/app--/js/modal/modalMenuAbrir.js"></script>
+  </body>
+</html>
